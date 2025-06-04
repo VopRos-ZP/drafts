@@ -18,7 +18,6 @@ export const TeamBlock: React.FC<TeamBlockProps> = ({draft, number, team, setTea
                 value={team}
                 onChange={text => setTeam(text)}
             />
-            <p>Ссылка на драфт: <a className="text-blue-500" href={link}>скопировать</a></p>
         </div>
     )
 }

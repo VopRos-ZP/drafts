@@ -10,7 +10,7 @@ interface InputFieldProps {
 export const InputField: React.FC<InputFieldProps> = ({placeholder, value, onChange, className}) => {
     return (
         <input
-            className={`${className} p-4 w-2/3 rounded-xl border-2`}
+            className={`${className} p-4 rounded-xl outline-0 border-1`}
             placeholder={placeholder}
             value={value}
             onChange={e => onChange(e.target.value)}
