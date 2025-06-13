@@ -1,2 +1,9 @@
+export const HEROES = "heroes"
 export const DRAFTS = "drafts"
-export const TEAM_DRAFTS = "team_drafts"
+
+export interface Hero {
+    id: number
+    name: string
+    imageUrl: string
+    type: string
+}

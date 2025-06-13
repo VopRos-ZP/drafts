@@ -4,6 +4,8 @@ import {createClient} from "@/utils/supabase/client";
 
 export interface Draft {
     id: number
+    timer: number
+    turn: number
     team1: string
     team2: string
     is_season_hero_ban: boolean

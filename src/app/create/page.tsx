@@ -49,7 +49,7 @@ export default function Create() {
     }
 
     return (
-        <div className="h-full w-full flex flex-col justify-evenly justify-items-center">
+        <div className="h-full w-full flex flex-col justify-evenly justify-items-center select-none">
             <div className="bg-blur w-2/5 rounded-4xl border-2 border-foreground p-8 self-center">
                 <div>
                     <label className="flex flex-row justify-between items-center">
