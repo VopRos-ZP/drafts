@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { useDidUpdate } from '../useDidUpdate/useDidUpdate';
+import { useDidUpdate } from '@/shared/hooks';
 
 export type PositiveInteger<Value extends number> = `${Value}` extends `-${any}` | `${any}.${any}`
   ? never

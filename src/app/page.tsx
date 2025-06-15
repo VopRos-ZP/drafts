@@ -190,16 +190,6 @@ export default function Home() {
                     />
                 </div>
             </div>
-            {/*<div className="grow flex justify-center">*/}
-            {/*    <div>*/}
-            {/*        <button*/}
-            {/*            disabled={false}*/}
-            {/*            onClick={() => turn()}*/}
-            {/*            className="pt-2 pb-2 pl-6 pr-6 border-2 rounded-xl text-xl border-foreground disabled:opacity-25 enabled:hover:border-blue-700 enabled:hover:bg-blue-700 hover:text-foreground">*/}
-            {/*            Выбрать*/}
-            {/*        </button>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </div>
     )
 }
