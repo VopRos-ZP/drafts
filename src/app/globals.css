@@ -37,3 +37,8 @@ input[type="checkbox"]:checked {
   background-color: var(--background-30);
   backdrop-filter: blur(10px);
 }
+
+.disable-card {
+  opacity: 25%;
+  border-color: grey;
+}

@@ -1,15 +1,19 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {HeroPickCard} from "@/components/HeroPickCard";
-import {Hero} from "@/supabase/schema";
 import Image from "next/image";
+import {Hero} from "@/utils/supabase/types";
 
 interface HeroesListProps {
     value: Hero[];
+    bans: Hero[];
+    picks: Hero[];
     tags: string[];
+    onClick: (hero: Hero) => void;
     className?: string;
+    disabled: boolean;
 }
 
-export const HeroesList: React.FC<HeroesListProps> = ({value, tags, className}) => {
+export const HeroesList: React.FC<HeroesListProps> = ({value, bans, picks, tags, onClick, className, disabled}) => {
     const [heroes, setHeroes] = useState<Hero[]>(value)
     const [selectedTag, setSelectedTag] = useState("")
 
@@ -57,8 +61,11 @@ export const HeroesList: React.FC<HeroesListProps> = ({value, tags, className}) 
                     <HeroPickCard
                         key={hero.id}
                         dataFilter={hero.type}
-                        className="outline-foreground"
+                        className="outline-foreground outline-2"
                         value={hero.imageUrl}
+                        size={90}
+                        enabled={!(bans.includes(hero) || picks.includes(hero)) && !disabled}
+                        onClick={() => onClick(hero)}
                     />
                 ))}
             </div>
