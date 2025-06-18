@@ -171,7 +171,7 @@ export default function Home() {
                     />
                 </div>
                 <HeroesList
-                    value={heroes.sort((a, b) => a.id.localeCompare(b.id))}
+                    value={heroes}
                     bans={draft.team1_hero_bans.concat(draft.team2_hero_bans)}
                     picks={draft.team1_hero_picks.concat(draft.team2_hero_picks)}
                     tags={['SHORTGUN', 'SCOUT', 'SNIPER', 'TANK', 'TROOPER']}
