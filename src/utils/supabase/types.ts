@@ -3,9 +3,8 @@ export const HEROES = "heroes"
 export const emptyHero = "https://dvlduuubunqdawuujpgi.supabase.co/storage/v1/object/public/heroes//empty.png"
 
 export interface Hero {
-    id: number
-    name: string
-    imageUrl: string
+    id: string
+    image_url: string
     type: string
 }
 

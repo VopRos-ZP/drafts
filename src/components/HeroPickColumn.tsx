@@ -15,7 +15,7 @@ export const HeroPickColumn: React.FC<HeroPickColumnProps> = ({value, picks, bor
             {value.map(i => (
                 <HeroPickCard
                     key={i}
-                    value={picks.length > i ? picks[i].imageUrl : emptyHero}
+                    value={picks.length > i ? picks[i].image_url : emptyHero}
                     size={90}
                     enabled={true}
                     className={`outline-0 border-2 ${className}`}

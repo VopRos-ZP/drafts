@@ -32,7 +32,7 @@ export const HeroesList: React.FC<HeroesListProps> = ({value, bans, picks, onCli
                         key={hero.id}
                         dataFilter={hero.type}
                         className="outline-foreground outline-2"
-                        value={hero.imageUrl}
+                        value={hero.image_url}
                         size={90}
                         enabled={!(bans.includes(hero) || picks.includes(hero)) && !disabled}
                         onClick={() => onClick(hero)}

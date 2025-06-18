@@ -123,7 +123,7 @@ export default function Home() {
                         {bans.map(i => (
                             <BanHeroCard
                                 key={i}
-                                value={draft.team1_hero_bans.length > i ? draft.team1_hero_bans[i].imageUrl : emptyHero}
+                                value={draft.team1_hero_bans.length > i ? draft.team1_hero_bans[i].image_url : emptyHero}
                                 className=""
                                 size={90}
                             />
@@ -150,7 +150,7 @@ export default function Home() {
                         {bans.map(i => (
                             <BanHeroCard
                                 key={i}
-                                value={draft.team2_hero_bans.length > i ? draft.team2_hero_bans[i].imageUrl : emptyHero}
+                                value={draft.team2_hero_bans.length > i ? draft.team2_hero_bans[i].image_url : emptyHero}
                                 className=""
                                 size={90}
                             />
@@ -171,7 +171,7 @@ export default function Home() {
                     />
                 </div>
                 <HeroesList
-                    value={heroes.sort((a, b) => a.name.localeCompare(b.name))}
+                    value={heroes.sort((a, b) => a.id.localeCompare(b.id))}
                     bans={draft.team1_hero_bans.concat(draft.team2_hero_bans)}
                     picks={draft.team1_hero_picks.concat(draft.team2_hero_picks)}
                     tags={['SHORTGUN', 'SCOUT', 'SNIPER', 'TANK', 'TROOPER']}
