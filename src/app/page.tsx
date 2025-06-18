@@ -139,7 +139,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="grow w-fit p-4 rounded-xl border-2 h-fit">
-                        <p className="text-6xl">{status}</p>
+                        <p className="text-5xl">{status}</p>
                     </div>
                 </div>
                 <div className="grow flex flex-col">

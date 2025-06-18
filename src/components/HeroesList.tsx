@@ -26,7 +26,7 @@ export const HeroesList: React.FC<HeroesListProps> = ({value, bans, picks, onCli
 
     return (
         <div className={`${className}  rounded-2xl border-2 border-foreground flex flex-col content-center `}>
-            <div className={`grid grid-cols-10 pl-5 pr-5`}>
+            <div className={`grid grid-cols-7 pl-5 pr-5`}>
                 {heroes.map(hero => (
                     <HeroPickCard
                         key={hero.id}
