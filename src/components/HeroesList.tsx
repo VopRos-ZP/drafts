@@ -4,6 +4,7 @@ import {Hero} from "@/utils/supabase/types";
 
 interface HeroesListProps {
     value: Hero[];
+    lock: Hero | null
     bans: Hero[];
     picks: Hero[];
     tags: string[];
@@ -12,7 +13,7 @@ interface HeroesListProps {
     disabled: boolean;
 }
 
-export const HeroesList: React.FC<HeroesListProps> = ({value, bans, picks, onClick, className, disabled}) => {
+export const HeroesList: React.FC<HeroesListProps> = ({value, lock, bans, picks, onClick, className, disabled}) => {
     const [heroes, setHeroes] = useState<Hero[]>(value)
     // const [selectedTag, setSelectedTag] = useState("")
 
@@ -31,7 +32,7 @@ export const HeroesList: React.FC<HeroesListProps> = ({value, bans, picks, onCli
                     <HeroPickCard
                         key={hero.id}
                         dataFilter={hero.type}
-                        className="outline-foreground outline-2"
+                        className={`${lock == hero ? 'bg-blue-600 outline-blue-600' : 'bg-background outline-foreground'} outline-2`}
                         value={hero.image_url}
                         size={90}
                         enabled={!(bans.includes(hero) || picks.includes(hero)) && !disabled}

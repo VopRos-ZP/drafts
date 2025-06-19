@@ -25,6 +25,7 @@ const defaultDraft = {
         "false-2", "false-2",
     ],
     seq_index: 0,
+    hero_lock: null,
     team1_hero_bans: [],
     team1_hero_picks: [],
     team2_hero_bans: [],
@@ -66,19 +67,25 @@ export default function Home() {
     }
 
     function onHeroClick(hero: Hero) {
+        draft.hero_lock = hero
+        setDraft(draft)
+    }
+
+    function onSelectButtonClick() {
         if (draft.type) {
             if (draft.turn) {
-                draft.team1_hero_bans.push(hero)
+                draft.team1_hero_bans.push(draft.hero_lock!)
             } else {
-                draft.team2_hero_bans.push(hero)
+                draft.team2_hero_bans.push(draft.hero_lock!)
             }
         } else {
             if (draft.turn) {
-                draft.team1_hero_picks.push(hero)
+                draft.team1_hero_picks.push(draft.hero_lock!)
             } else {
-                draft.team2_hero_picks.push(hero)
+                draft.team2_hero_picks.push(draft.hero_lock!)
             }
         }
+        draft.hero_lock = null
         if ((draft.count + 1) == draft.maxCount) {
             turn()
         } else {
@@ -99,19 +106,25 @@ export default function Home() {
         },
         onExpire: () => {
             if (!draft.type) {
-                const arr = heroes.filter((h) => {
-                    return !draft.team1_hero_bans.includes(h) &&
-                        !draft.team1_hero_picks.includes(h) &&
-                        !draft.team2_hero_bans.includes(h) &&
-                        !draft.team2_hero_picks.includes(h)
-                })
-                const hero = arr[Math.floor(Math.random() * arr.length)]
-                onHeroClick(hero)
+                for (let i = draft.count; i < draft.maxCount; i++) {
+
+                }
+                if (draft.hero_lock == null) {
+                    const arr = heroes.filter((h) => {
+                        return !draft.team1_hero_bans.includes(h) &&
+                            !draft.team1_hero_picks.includes(h) &&
+                            !draft.team2_hero_bans.includes(h) &&
+                            !draft.team2_hero_picks.includes(h)
+                    })
+                    draft.hero_lock = arr[Math.floor(Math.random() * arr.length)]
+                    setDraft(draft)
+                }
+                onSelectButtonClick()
             }
             turn()
         }
     })
-    
+
     return (
         <div className="h-full w-full flex flex-col select-none">
             <div className="pb-8 flex flex-row justify-between">
@@ -172,6 +185,7 @@ export default function Home() {
                 </div>
                 <HeroesList
                     value={heroes}
+                    lock={draft.hero_lock}
                     bans={draft.team1_hero_bans.concat(draft.team2_hero_bans)}
                     picks={draft.team1_hero_picks.concat(draft.team2_hero_picks)}
                     tags={['SHORTGUN', 'SCOUT', 'SNIPER', 'TANK', 'TROOPER']}
@@ -188,6 +202,16 @@ export default function Home() {
                         borderColor="red-600"
                         className="border-red-600"
                     />
+                </div>
+            </div>
+            <div className="grow flex justify-center">
+                <div>
+                    <button
+                        disabled={draft.hero_lock == null}
+                        onClick={onSelectButtonClick}
+                        className="pt-2 pb-2 pl-6 pr-6 border-2 rounded-xl text-xl border-foreground disabled:opacity-25 enabled:hover:border-blue-700 enabled:hover:bg-blue-700 hover:text-foreground">
+                        Выбрать
+                    </button>
                 </div>
             </div>
         </div>

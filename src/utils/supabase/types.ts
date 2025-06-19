@@ -19,6 +19,7 @@ export interface Draft {
     team1: string
     team2: string
     seq_index: number
+    hero_lock: Hero | null
     team1_hero_bans: Hero[]
     team2_hero_bans: Hero[]
     team1_hero_picks: Hero[]
